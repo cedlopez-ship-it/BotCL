@@ -21,10 +21,13 @@ import datetime as dt
 from typing import Dict, List, Optional, Iterator
 import os
 
-WEBEX_ACCESS_TOKEN="YWM2Yzg3ODItZGY1OC00MzJlLWE5ZGYtZWE0NjNkMjNlZTBlNDQ1NmNlYzEtNzAw_PF84_8c3c67f5-9dba-4be8-b058-76d7afe45521"
-WEBEX_ADMIN_TOKEN="Y2FlMGQ4N2ItMTQ2MS00M2NhLTgxZWQtMWU4MTBkNDI4MmYyM2E2YWQxODAtNzk4_PF84_8c3c67f5-9dba-4be8-b058-76d7afe45521"
+WEBEX_ACCESS_TOKEN = os.getenv(
+    "YWM2Yzg3ODItZGY1OC00MzJlLWE5ZGYtZWE0NjNkMjNlZTBlNDQ1NmNlYzEtNzAw_PF84_8c3c67f5-9dba-4be8-b058-76d7afe45521"
+)
 
-
+WEBEX_ADMIN_TOKEN = os.getenv(
+    "Y2FlMGQ4N2ItMTQ2MS00M2NhLTgxZWQtMWU4MTBkNDI4MmYyM2E2YWQxODAtNzk4_PF84_8c3c67f5-9dba-4be8-b058-76d7afe45521"
+)
 
 print("TOKEN:", bool(os.getenv("WEBEX_ACCESS_TOKEN")))
 # ========= Webex Bot (WebSockets) =========
@@ -269,7 +272,7 @@ class CdrSubmit(Command):
         self.api = WebexAPI(access_token=os.getenv("WEBEX_ACCESS_TOKEN"))
 
     def execute(self, message, attachment_actions, activity):
-        admin_token = os.getenv("WEBEX_ADMIN_TOKEN", "").strip()
+        admin_token = WEBEX_ADMIN_TOKEN.strip()
         if not admin_token:
             return ("❌ Falta **WEBEX_ADMIN_TOKEN** (token admin con scope "
                     "`spark-admin:calling_cdr_read`). Editá HARDCODED_ADMIN_TOKEN al inicio del archivo.")
@@ -454,7 +457,7 @@ class CdrCommand(Command):
 # ========= Bootstrap =========
 
 def main():
-    bot_token = os.getenv("WEBEX_ACCESS_TOKEN", "").strip()
+    bot_token = WEBEX_ACCESS_TOKEN.strip()
     if not bot_token:
         print("Falta WEBEX_ACCESS_TOKEN (token del bot). Editá HARDCODED_BOT_TOKEN.", file=sys.stderr)
         sys.exit(2)
@@ -477,6 +480,7 @@ if __name__ == "__main__":
         main()
     except KeyboardInterrupt:
         print("\nInterrumpido.")
+
 
 
 
