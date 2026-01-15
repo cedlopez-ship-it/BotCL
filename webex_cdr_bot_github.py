@@ -21,13 +21,6 @@ import datetime as dt
 from typing import Dict, List, Optional, Iterator
 import os
 
-WEBEX_ACCESS_TOKEN = os.getenv(
-    "YWM2Yzg3ODItZGY1OC00MzJlLWE5ZGYtZWE0NjNkMjNlZTBlNDQ1NmNlYzEtNzAw_PF84_8c3c67f5-9dba-4be8-b058-76d7afe45521"
-)
-
-WEBEX_ADMIN_TOKEN = os.getenv(
-    "Y2FlMGQ4N2ItMTQ2MS00M2NhLTgxZWQtMWU4MTBkNDI4MmYyM2E2YWQxODAtNzk4_PF84_8c3c67f5-9dba-4be8-b058-76d7afe45521"
-)
 
 print("TOKEN:", bool(os.getenv("WEBEX_ACCESS_TOKEN")))
 # ========= Webex Bot (WebSockets) =========
@@ -480,6 +473,7 @@ if __name__ == "__main__":
         main()
     except KeyboardInterrupt:
         print("\nInterrumpido.")
+
 
 
 
