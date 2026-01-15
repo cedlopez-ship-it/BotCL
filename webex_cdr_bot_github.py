@@ -450,9 +450,9 @@ class CdrCommand(Command):
 # ========= Bootstrap =========
 
 def main():
-    bot_token = WEBEX_ACCESS_TOKEN.strip()
+    bot_token = os.getenv("WEBEX_ACCESS_TOKEN", "").strip()
     if not bot_token:
-        print("Falta WEBEX_ACCESS_TOKEN (token del bot). Editá HARDCODED_BOT_TOKEN.", file=sys.stderr)
+        print("Falta WEBEX_ACCESS_TOKEN (token del bot).", file=sys.stderr)
         sys.exit(2)
 
     bot = WebexBot(
@@ -473,6 +473,7 @@ if __name__ == "__main__":
         main()
     except KeyboardInterrupt:
         print("\nInterrumpido.")
+
 
 
 
