@@ -19,9 +19,16 @@ import tempfile
 import requests
 import datetime as dt
 from typing import Dict, List, Optional, Iterator
-from dotenv import load_dotenv
 import os
-load_dotenv()
+
+WEBEX_ACCESS_TOKEN = os.getenv("WEBEX_ACCESS_TOKEN")
+WEBEX_ADMIN_TOKEN = os.getenv("WEBEX_ADMIN_TOKEN")
+
+if not WEBEX_ACCESS_TOKEN:
+    raise RuntimeError("Falta WEBEX_ACCESS_TOKEN")
+
+if not WEBEX_ADMIN_TOKEN:
+    raise RuntimeError("Falta WEBEX_ADMIN_TOKEN")
 
 
 # ========= Webex Bot (WebSockets) =========
@@ -474,3 +481,4 @@ if __name__ == "__main__":
         main()
     except KeyboardInterrupt:
         print("\nInterrumpido.")
+
