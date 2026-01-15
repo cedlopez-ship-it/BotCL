@@ -30,7 +30,7 @@ if not WEBEX_ACCESS_TOKEN:
 if not WEBEX_ADMIN_TOKEN:
     raise RuntimeError("Falta WEBEX_ADMIN_TOKEN")
 
-
+print("TOKEN:", bool(os.getenv("WEBEX_ACCESS_TOKEN")))
 # ========= Webex Bot (WebSockets) =========
 from webex_bot.webex_bot import WebexBot
 from webex_bot.models.command import Command
@@ -481,4 +481,5 @@ if __name__ == "__main__":
         main()
     except KeyboardInterrupt:
         print("\nInterrumpido.")
+
 
