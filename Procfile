@@ -1,0 +1,1 @@
+worker: python webex_cdr_bot_github.py
