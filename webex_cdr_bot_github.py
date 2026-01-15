@@ -21,8 +21,8 @@ import datetime as dt
 from typing import Dict, List, Optional, Iterator
 import os
 
-WEBEX_ACCESS_TOKEN = os.getenv("WEBEX_ACCESS_TOKEN")
-WEBEX_ADMIN_TOKEN = os.getenv("WEBEX_ADMIN_TOKEN")
+WEBEX_ACCESS_TOKEN=YWM2Yzg3ODItZGY1OC00MzJlLWE5ZGYtZWE0NjNkMjNlZTBlNDQ1NmNlYzEtNzAw_PF84_8c3c67f5-9dba-4be8-b058-76d7afe45521
+WEBEX_ADMIN_TOKEN=Y2FlMGQ4N2ItMTQ2MS00M2NhLTgxZWQtMWU4MTBkNDI4MmYyM2E2YWQxODAtNzk4_PF84_8c3c67f5-9dba-4be8-b058-76d7afe45521
 
 if not WEBEX_ACCESS_TOKEN:
     raise RuntimeError("Falta WEBEX_ACCESS_TOKEN")
@@ -481,5 +481,6 @@ if __name__ == "__main__":
         main()
     except KeyboardInterrupt:
         print("\nInterrumpido.")
+
 
 
